@@ -20,12 +20,12 @@ class FileTypeExtension extends AbstractTypeExtension
     {
         return 'file';
     }
-    
+
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setOptional(array('image_path', 'translatable'));
     }
-    
+
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         if (array_key_exists('image_path', $options)) {
@@ -37,7 +37,7 @@ class FileTypeExtension extends AbstractTypeExtension
                 if (null !== $parentData) {
                     $pa = PropertyAccess::getPropertyAccessor();
                     $propertyPath = new PropertyPath($options['image_path']);
-                    
+
                     $imageUrl = $pa->getValue($parentData, $propertyPath);
                 } else {
                      $imageUrl = null;
@@ -45,7 +45,7 @@ class FileTypeExtension extends AbstractTypeExtension
             }
 
             // set an "image_url" variable that will be available when rendering this field
-            
+
             $view->vars['image_url'] = $imageUrl;
         } else {
             $view->vars['image_url'] = null;
