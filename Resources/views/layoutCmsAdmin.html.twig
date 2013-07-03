@@ -1,0 +1,19 @@
+{% extends '::adminBase.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/backend.css?') ~ app_version }}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block title %}
+    {% trans %}Project.title{% endtrans %}
+{% endblock %}
+
+{% block sidebar %}
+<div class="menu">
+        &nbsp;
+</div>
+{% endblock %}
+
+{% block body %}
+    {% block content %}{% endblock %}
+{% endblock %}
