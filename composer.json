@@ -1,5 +1,5 @@
 {
-    "name": "mediapark/cms-bundle",
+    "name": "mediapark-cms",
     "type": "symfony-bundle",
     "description": "Mediapark Symfony CmsBundle",
     "keywords": ["CMS"],

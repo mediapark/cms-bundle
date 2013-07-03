@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaparkLt\CmsBundle\Entity;
+namespace Mediapark\CmsBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * @ORM\Entity(repositoryClass="MediaparkLt\CmsBundle\Entity\CmsImageRepository")
+ * @ORM\Entity(repositoryClass="Mediapark\CmsBundle\Entity\CmsImageRepository")
  */
 class CmsImageText extends CmsElement
 {

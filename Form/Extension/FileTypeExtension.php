@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaparkLt\CmsBundle\Form\Extension;
+namespace Mediapark\CmsBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormInterface;

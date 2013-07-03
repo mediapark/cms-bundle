@@ -1,10 +1,10 @@
 <?php
 
-namespace MediaparkLt\CmsBundle\Entity;
+namespace Mediapark\CmsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 /**
- * @ORM\Entity(repositoryClass="MediaparkLt\CmsBundle\Entity\CmsNodeRepository")
+ * @ORM\Entity(repositoryClass="Mediapark\CmsBundle\Entity\CmsNodeRepository")
  */
 class CmsNode extends CmsElement
 {

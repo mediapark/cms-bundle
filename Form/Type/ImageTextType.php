@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaparkLt\CmsBundle\Form\Type;
+namespace Mediapark\CmsBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
@@ -25,13 +25,13 @@ class ImageTextType extends AbstractType{
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'MediaparkLt\CmsBundle\Entity\CmsImageText',
+            'data_class' => 'Mediapark\CmsBundle\Entity\CmsImageText',
             'simple' => true
         ));
     }
 
     public function getName() {
-        return 'mediaparklt_cms_image_text';
+        return 'Mediapark_cms_image_text';
     }
 
 }
