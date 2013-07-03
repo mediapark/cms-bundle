@@ -10,15 +10,15 @@ class ImageTextType extends AbstractType{
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add('is_active', 'checkbox', array('label' => 'cms.Is.active'));
-        $builder->add('position', 'number', array('label' => 'cms.Position'));                
-        
+        $builder->add('position', 'number', array('label' => 'cms.Position'));
+
         $builder->add('title', 'text', array('label' => 'cms.Title'));
         $builder->add('image_file', 'file', array('label' => 'cms.Image', 'image_path' => 'imageWebPath'));
 
         if ($builder->getData() && $builder->getData()->getImage()) {
             $builder->add('delete_image', 'checkbox', array('mapped' => false, 'required' => false, 'label' => 'cms.Delete.file'));
-        }        
-        
+        }
+
         $builder->add('text', 'ckeditor', array('label' => 'cms.Text'));
 
     }
@@ -31,7 +31,7 @@ class ImageTextType extends AbstractType{
     }
 
     public function getName() {
-        return 'Mediapark_cms_image_text';
+        return 'mediapark_cms_image_text';
     }
 
 }

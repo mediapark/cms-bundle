@@ -31,7 +31,7 @@ class ImageType extends AbstractType {
     }
 
     public function getName() {
-        return 'Mediapark_cms_image';
+        return 'mediapark_cms_image';
     }
 
 }
