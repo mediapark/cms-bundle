@@ -59,7 +59,7 @@ class CmsImage extends CmsElement
     }
 
     public function getUploadRootDir($property_name) {
-        return __DIR__ . '/../../../../web/' . $this->getUploadDir($property_name);
+        return __DIR__ . '/../../../../../../web/' . $this->getUploadDir($property_name);
     }
 
     public function getUploadDir($property_name) {
