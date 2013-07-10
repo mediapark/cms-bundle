@@ -1,3 +1,20 @@
 parameters:
 
 services:
+    cms.form.type.image:
+        class: Mediapark\CmsBundle\Form\Type\ImageType
+        tags:
+            - { name: form.type, alias: mediapark_cms_image }
+
+    cms.form.type.image_text:
+        class: Mediapark\CmsBundle\Form\Type\ImageTextType
+        tags:
+            - { name: form.type, alias: mediapark_cms_image_text }
+            
+
+    form.file.type.extension:
+        class: Mediapark\CmsBundle\Form\Extension\FileTypeExtension
+        tags:
+            - { name: form.type_extension, alias: file }
+
+            
