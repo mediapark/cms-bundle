@@ -130,7 +130,8 @@ abstract class MpController extends Controller {
                 $method_name = 'get' . str_replace('_', '', ucwords($field_file));
                 
                 if (method_exists($entity, $method_name)) {
-                    $entity->removeUpload($field);
+                    //TODO:make this configurable
+                    //$entity->removeUpload($field);
                     $entity->upload($field);
                 }
             }
