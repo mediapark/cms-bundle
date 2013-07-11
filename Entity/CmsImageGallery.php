@@ -14,7 +14,7 @@ use Mediapark\MainBundle\Entity\MpTranslatable;
 class CmsImageGallery extends CmsElement
 {
     /**
-     * @ORM\OneToMany(targetEntity="CmsImage", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="CmsImage", mappedBy="parent", cascade={"persist"})
      */
     protected $children;
 

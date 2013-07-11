@@ -27,12 +27,12 @@ class CmsElement
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="CmsElement", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="CmsElement", mappedBy="parent", cascade={"persist"})
      */
     protected $children;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CmsElement", inversedBy="children")
+     * @ORM\ManyToOne(targetEntity="CmsElement", inversedBy="children", cascade={"persist"})
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
     protected $parent;
@@ -273,5 +273,13 @@ class CmsElement
             }
         }
         return $response;
+    }
+
+    public function __clone() {
+        $this->id = null;
+        for($i = 0; $i < count($this->children); $i++) {
+            $this->children[$i] = clone $this->children[$i];
+            $this->children[$i]->setParent($this);
+        }
     }
 }
