@@ -23,6 +23,11 @@ class MediaparkCmsExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        if(isset($config['uploads'])) {
+            $container->setParameter('cms.uploads.keep_on_change', $config['uploads']['keep_on_change']);
+        } else {
+            $container->setParameter('cms.uploads.keep_on_change', false);
+        }
         $loader->load('services.yml');
     }
 }
