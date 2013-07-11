@@ -20,10 +20,14 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('mediapark_cms');
 
-        $rootNode->children()->arrayNode('uploads')
-            ->children()->scalarNode('keep_on_change')
-            ->end()
-            ->end();
+        $rootNode->children()
+            ->arrayNode('uploads')
+            ->children()->scalarNode('keep_on_change')->end()
+            ->end()->end()
+            ->arrayNode('session')->isRequired()
+            ->children()->scalarNode('class')->isRequired()->end()
+            ->end()->end()
+        ->end();
 
         return $treeBuilder;
     }

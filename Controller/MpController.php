@@ -19,7 +19,9 @@ abstract class MpController extends Controller {
         $id = 'sess';
         $s = $this->getRequest()->getSession();
         if (!$s->get($id)) {
-            $s->set($id, new MpSession());
+            $r = new ReflectionClass($this->container->getParameter('cms.session.class'));
+            $session = $r->newInstanceArgs();
+            $s->set($id, $session);
         }
         return $s->get($id);
     }

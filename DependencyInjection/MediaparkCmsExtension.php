@@ -28,6 +28,7 @@ class MediaparkCmsExtension extends Extension
         } else {
             $container->setParameter('cms.uploads.keep_on_change', false);
         }
+        $container->setParameter('cms.session.class', $config["session"]["class"]);
         $loader->load('services.yml');
     }
 }
