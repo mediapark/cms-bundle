@@ -33,7 +33,7 @@ class CmsElement
 
     /**
      * @ORM\ManyToOne(targetEntity="CmsElement", inversedBy="children", cascade={"persist"})
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $parent;
 
