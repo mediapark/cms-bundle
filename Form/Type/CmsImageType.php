@@ -1,6 +1,6 @@
 <?php
 
-namespace Mediapark\CmsBundle\Form\Type;
+namespace Mp\CmsBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
@@ -31,7 +31,7 @@ class CmsImageType extends AbstractType {
     }
 
     public function getName() {
-        return 'mediapark_cms_image';
+        return 'mp_cms_image';
     }
 
 }

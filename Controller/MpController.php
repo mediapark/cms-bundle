@@ -1,6 +1,6 @@
 <?php
 
-namespace Mediapark\CmsBundle\Controller;
+namespace Mp\CmsBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -113,7 +113,7 @@ abstract class MpController extends Controller {
                 $fields_to_upload[] = $name;
             }
             
-            if ($child->getData() instanceof \Mediapark\CmsBundle\Entity\CmsElement) {
+            if ($child->getData() instanceof \Mp\CmsBundle\Entity\CmsElement) {
                 $this->upload($child, $child->getData());
             }
         }

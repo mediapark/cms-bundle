@@ -22,7 +22,7 @@
     "require-dev": {
     },
     "autoload": {
-        "psr-0": { "Mediapark\\CmsBundle": "" }
+        "psr-0": { "Mp\\CmsBundle": "" }
     },
-    "target-dir": "Mediapark/CmsBundle"
+    "target-dir": "Mp/CmsBundle"
 }

@@ -1,16 +1,16 @@
 <?php
 
-namespace Mediapark\CmsBundle\Entity;
+namespace Mp\CmsBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use Mediapark\MainBundle\Entity\MpTranslatable;
+use Mp\MainBundle\Entity\MpTranslatable;
 
 /**
  * @ORM\Table(name="cms_element")
- * @ORM\Entity(repositoryClass="Mediapark\CmsBundle\Entity\CmsElementRepository")
+ * @ORM\Entity(repositoryClass="Mp\CmsBundle\Entity\CmsElementRepository")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  */
@@ -212,10 +212,10 @@ class CmsElement
     /**
      * Set parent
      *
-     * @param \Mediapark\CmsBundle\Entity\CmsElement $parent
+     * @param \Mp\CmsBundle\Entity\CmsElement $parent
      * @return CmsElement
      */
-    public function setParent(\Mediapark\CmsBundle\Entity\CmsElement $parent = null)
+    public function setParent(\Mp\CmsBundle\Entity\CmsElement $parent = null)
     {
         $this->parent = $parent;
 
@@ -225,7 +225,7 @@ class CmsElement
     /**
      * Get parent
      *
-     * @return \Mediapark\CmsBundle\Entity\CmsElement
+     * @return \Mp\CmsBundle\Entity\CmsElement
      */
     public function getParent()
     {
@@ -235,10 +235,10 @@ class CmsElement
     /**
      * Add children
      *
-     * @param \Mediapark\CmsBundle\Entity\CmsElement $children
+     * @param \Mp\CmsBundle\Entity\CmsElement $children
      * @return CmsElement
      */
-    public function addChildren(\Mediapark\CmsBundle\Entity\CmsElement $children)
+    public function addChildren(\Mp\CmsBundle\Entity\CmsElement $children)
     {
         $this->children[] = $children;
 
@@ -248,9 +248,9 @@ class CmsElement
     /**
      * Remove children
      *
-     * @param \Mediapark\CmsBundle\Entity\CmsElement $children
+     * @param \Mp\CmsBundle\Entity\CmsElement $children
      */
-    public function removeChildren(\Mediapark\CmsBundle\Entity\CmsElement $children)
+    public function removeChildren(\Mp\CmsBundle\Entity\CmsElement $children)
     {
         $this->children->removeElement($children);
     }

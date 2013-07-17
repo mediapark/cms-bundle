@@ -1,6 +1,6 @@
 <?php
 
-namespace Mediapark\CmsBundle\Entity;
+namespace Mp\CmsBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mediapark\CmsBundle\Controller;
+namespace Mp\CmsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

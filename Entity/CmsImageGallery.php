@@ -1,15 +1,15 @@
 <?php
 
-namespace Mediapark\CmsBundle\Entity;
+namespace Mp\CmsBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use Mediapark\MainBundle\Entity\MpTranslatable;
+use Mp\MainBundle\Entity\MpTranslatable;
 
 /**
- * @ORM\Entity(repositoryClass="Mediapark\CmsBundle\Entity\CmsImageGalleryRepository")
+ * @ORM\Entity(repositoryClass="Mp\CmsBundle\Entity\CmsImageGalleryRepository")
  */
 class CmsImageGallery extends CmsElement
 {
@@ -62,10 +62,10 @@ class CmsImageGallery extends CmsElement
     /**
      * Add children
      *
-     * @param \Mediapark\CmsBundle\Entity\CmsImage $children
+     * @param \Mp\CmsBundle\Entity\CmsImage $children
      * @return CmsSlider
      */
-    public function addChildren(\Mediapark\CmsBundle\Entity\CmsElement $children)
+    public function addChildren(\Mp\CmsBundle\Entity\CmsElement $children)
     {
         $this->children[] = $children;
 
@@ -75,9 +75,9 @@ class CmsImageGallery extends CmsElement
     /**
      * Remove children
      *
-     * @param \Mediapark\CmsBundle\Entity\CmsImage $children
+     * @param \Mp\CmsBundle\Entity\CmsImage $children
      */
-    public function removeChildren(\Mediapark\CmsBundle\Entity\CmsElement $children)
+    public function removeChildren(\Mp\CmsBundle\Entity\CmsElement $children)
     {
         $this->children->removeElement($children);
     }
