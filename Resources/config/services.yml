@@ -1,17 +1,26 @@
 parameters:
 
 services:
+    cms.form.type.element:
+        class: Mediapark\CmsBundle\Form\Type\CmsElement
+        tags:
+            - { name: form.type, alias: mediapark_cms_element }
+            
     cms.form.type.image:
-        class: Mediapark\CmsBundle\Form\Type\ImageType
+        class: Mediapark\CmsBundle\Form\Type\CmsImageType
         tags:
             - { name: form.type, alias: mediapark_cms_image }
 
+    cms.form.type.text:
+        class: Mediapark\CmsBundle\Form\Type\CmsText
+        tags:
+            - { name: form.type, alias: mediapark_cms_text }
+    
     cms.form.type.image_text:
-        class: Mediapark\CmsBundle\Form\Type\ImageTextType
+        class: Mediapark\CmsBundle\Form\Type\CmsImageTextType
         tags:
             - { name: form.type, alias: mediapark_cms_image_text }
-            
-
+        
     form.file.type.extension:
         class: Mediapark\CmsBundle\Form\Extension\FileTypeExtension
         tags:
