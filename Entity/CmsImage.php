@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use Mp\MainBundle\Entity\MpTranslatable;
+use Mp\CmsBundle\Entity\MpTranslatable;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
@@ -106,6 +106,11 @@ class CmsImage extends CmsElement
         }
     }
 
+    
+    public function __toString() {
+        return $this->getContent();
+    }
+    
     /**
      * Set content
      *

@@ -141,5 +141,47 @@ abstract class MpController extends Controller {
         }
         
     }
+    
+    /**
+     * Recursively uploads attached form translatable fields with file types and sets field values
+     *
+     * @param \Symfony\Component\Form\FormInterface form to process
+     * @param MpTranslatable data bound to form
+     * 
+     * @return \Symfony\Component\Form\Form
+     */    
+    protected function uploadTranslatable($form_type, $form, $entity) {
+       
+        $fields_to_delete = array();
+        $fields_to_upload = array();
+        
+        foreach ($form_type->getTranslatableFiles() as $field) {
+            if ((strpos($field->name, "trans_delete_") === 0) && ($form->get($field->name)->getData() == 1)) {
+                $name = str_replace('trans_delete_', '', $field->name);
+                $fields_to_delete[] = $field;
+            }
+            
+            if ((strpos($field->name, "_file_trans") === strlen($field->name) - 11) && $form->get($field->name)->getData()) {
+                $name = str_replace("_file_trans", "", $field->name);
+                $fields_to_upload[] = $field;
+            }
+        }
+
+        
+        foreach ($fields_to_delete as $field) {
+            $entity->removeTranslatableUpload($field->locale, $field->title);
+        }
+
+        foreach ($fields_to_upload as $field) {
+            if (!in_array($field, $fields_to_delete)) {
+                echo var_dump($field->locale); echo var_dump($field->title);
+                if ($entity->translate($field->locale, $field->title) ) {
+                    $entity->removeTranslatableUpload($field->locale, $field->title);
+                }                 
+
+                $entity->uploadTranslatable($field, $form->get($field->name)->getData());
+            }
+        }
+    }
 
 }

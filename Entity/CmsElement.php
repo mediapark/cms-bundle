@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use Mp\MainBundle\Entity\MpTranslatable;
+use Mp\CmsBundle\Entity\MpTranslatable;
 
 /**
  * @ORM\Table(name="cms_element")
@@ -15,7 +15,7 @@ use Mp\MainBundle\Entity\MpTranslatable;
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  */
 
-class CmsElement
+class CmsElement extends MpTranslatable
 {
     /**
      * @var integer $id
@@ -25,7 +25,16 @@ class CmsElement
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="Mp\CmsBundle\Entity\CmsElementTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    protected $translations;
+    
     /**
      * @ORM\OneToMany(targetEntity="CmsElement", mappedBy="parent", cascade={"persist"})
      */
@@ -82,6 +91,7 @@ class CmsElement
     public function __construct()
     {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->translations = new \Doctrine\Common\Collections\ArrayCollection();        
     }
 
     /**
@@ -281,5 +291,41 @@ class CmsElement
             $this->children[$i] = clone $this->children[$i];
             $this->children[$i]->setParent($this);
         }
+    }
+    
+    /**
+     * Add translations
+     *
+     * @param \Mp\CmsBundle\Entity\CmsElementTranslation $t
+     * @return Person
+     */
+    public function addTranslation(\Mp\CmsBundle\Entity\CmsElementTranslation $t)
+    {
+        if (!$this->translations->contains($t)) {
+            $this->translations[] = $t;
+            $t->setObject($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove translations
+     *
+     * @param \Mp\CmsBundle\Entity\CmsElementTranslation $translations
+     */
+    public function removeTranslation(\Mp\CmsBundle\Entity\CmsElementTranslation $translations)
+    {
+        $this->translations->removeElement($translations);
+    }
+
+    /**
+     * Get translations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTranslations()
+    {
+        return $this->translations;
     }
 }
