@@ -28,6 +28,20 @@ class CmsImageText extends CmsElement
     private $image_file;
     
     /**
+     * @var string $seo_title
+     *
+     * @ORM\Column(name="seo_title", type="text", nullable=true)
+     */
+    private $seo_title;
+        
+    /**
+     * @var string $seo_alt_text
+     *
+     * @ORM\Column(name="seo_alt_text", type="text", nullable=true)
+     */
+    private $seo_alt_text;
+    
+    /**
      * @var string $image
      *
      * @ORM\Column(name="text", type="text", nullable=true)
@@ -135,6 +149,52 @@ class CmsImageText extends CmsElement
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * Set seo_title
+     *
+     * @param string $seo_title
+     * @return CmsImage
+     */
+    public function setSeoTitle($seo_title)
+    {
+        $this->seo_title = $seo_title;
+    
+        return $this;
+    }
+
+    /**
+     * Get seo_title
+     *
+     * @return string 
+     */
+    public function getSeoTitle()
+    {
+        return $this->seo_title;
+    }
+    
+    /**
+     * Set seo_alt_text
+     *
+     * @param string $seo_alt_text
+     * @return CmsImage
+     */
+    public function setSeoAltText($seo_alt_text)
+    {
+        $this->seo_alt_text = $seo_alt_text;
+    
+        return $this;
+    }
+
+    /**
+     * Get seo_alt_text
+     *
+     * @return string 
+     */
+    public function getSeoAltText()
+    {
+        return $this->seo_alt_text;
     }
     
     /**

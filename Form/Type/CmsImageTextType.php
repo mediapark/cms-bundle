@@ -14,7 +14,12 @@ class CmsImageTextType extends AbstractType{
 
         $builder->add('title', 'text', array('label' => 'cms.Title'));
         $builder->add('image_file', 'file', array('label' => 'cms.Image', 'image_path' => 'imageWebPath'));
-
+        
+        if (isset($options['seo']) && ($options['seo'] === true)) {
+            $builder->add('seo_alt_text', 'text', array('label' => 'cms.Seo.Alt.text'));
+            $builder->add('seo_title', 'text', array('label' => 'cms.Seo.Title'));
+        }
+        
         if ($builder->getData() && $builder->getData()->getImage()) {
             $builder->add('delete_image', 'checkbox', array('mapped' => false, 'required' => false, 'label' => 'cms.Delete.file'));
         }
@@ -26,7 +31,7 @@ class CmsImageTextType extends AbstractType{
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
             'data_class' => 'Mp\CmsBundle\Entity\CmsImageText',
-            'simple' => true
+            'simple' => false
         ));
     }
 
