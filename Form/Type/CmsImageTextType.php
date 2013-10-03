@@ -31,7 +31,8 @@ class CmsImageTextType extends AbstractType{
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
             'data_class' => 'Mp\CmsBundle\Entity\CmsImageText',
-            'simple' => false
+            'simple' => false,
+            'seo' => false
         ));
     }
 
