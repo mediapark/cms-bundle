@@ -1,0 +1,40 @@
+cms:
+    Administration: Administration
+    preview.website: Preview website
+    logout: Logout
+
+    no.items: No items
+    add.item: Add item
+    Edit.item: Edit item
+    Delete.file: Delete this file
+
+    save: Save
+    back: Back
+    show: Show
+    list: List
+
+    Title: Title
+    Url: Url
+    Text: Text
+    Is.active: Is active
+    Position: Position
+    Image: Image
+    Seo.Alt.text: Alt text (seo)
+    Seo.Title: Title (seo)
+    
+    Logo: Logo
+
+    Static.pages: Static pages
+
+    New: New
+    new:
+      Item: New item
+
+    Edit: Edit
+    edit:
+      Item: Edit item "%title%"
+   
+
+    Saved.successfully: Saved sucessfully
+    
+        

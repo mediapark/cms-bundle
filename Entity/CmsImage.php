@@ -19,29 +19,29 @@ class CmsImage extends CmsElement
      *
      * @ORM\Column(name="content", type="text", nullable=true)
      */
-    private $content;
+    protected $content;
     
     /**
      * @var string $seo_title
      *
      * @ORM\Column(name="seo_title", type="text", nullable=true)
      */
-    private $seo_title;
+    protected $seo_title;
         
     /**
      * @var string $seo_alt_text
      *
      * @ORM\Column(name="seo_alt_text", type="text", nullable=true)
      */
-    private $seo_alt_text;
+    protected $seo_alt_text;
     
     /**
      * @Assert\File(maxSize="10000000")
      */    
-    private $content_file;
+    protected $content_file;
 
     
-    private function getFileProperties(){
+    protected function getFileProperties(){
         return array(
             'content' => &$this->content,
             'content_file' => &$this->content_file,
