@@ -102,8 +102,11 @@ class CmsImageText extends CmsElement
             return;
         }
 
+        $parts = explode('.', $file->getClientOriginalName());
+        $extension = end($parts);
+ 
         $filename = sha1(uniqid(mt_rand(), true));
-        $property[$property_name] = $filename.'.'.$file->guessExtension();
+        $property[$property_name] = $filename.'.'.$extension;
 
         $file->move($this->getUploadRootDir($property_name), $property[$property_name]);
 
